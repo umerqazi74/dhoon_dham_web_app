@@ -13,6 +13,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/button_widget.dart';
 import '../../../../core/shades_widget.dart';
+import '../../common_widgets.dart';
 import '../../dashboard/matches_points_table.dart';
 import '../../leaderboard/leader_board_screen.dart';
 import '../../my_team/my_team_screen.dart';
@@ -205,120 +206,9 @@ class _ContextScreenState extends State<ContextScreen> {
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Container(
-                                            height: 40,
-                                            width: fullWidth/2.5,
-                                            decoration: BoxDecoration(
-                                              color: blackColor.withOpacity(.04),
-                                              borderRadius: BorderRadius.circular(10),
-                                              border: Border.all(
-                                                color: blackColor.withOpacity(.6),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            child: Center(
-                                              child: TextFormField(
-                                                // controller: mySearchController,
-                                                style: TextStyle(
-                                                  color: whiteColor,
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w400,
-                                                ),
-                                                textInputAction: TextInputAction.done,
-                                                keyboardType: TextInputType.text,
-                                                autofocus: false,
-                                                decoration: InputDecoration(
-                                                  fillColor: blackColor.withOpacity(.5),
-                                                  filled: true,
-                                                  suffixStyle: const TextStyle(
-                                                    color: blackColor,
-                                                  ),
-                                                  prefixIcon: SvgPicture.asset(
-                                                    "assets/main_icons/search.svg",
-                                                  ),
-                                                  prefixIconConstraints: const BoxConstraints(
-                                                    minHeight: 10,
-                                                    minWidth: 55,
-                                                  ),
-                                                  suffixIconConstraints: const BoxConstraints(
-                                                    minHeight: 10,
-                                                    minWidth: 55,
-                                                  ),
-                                                  hintText: "Type to search...",
-                                                  hintStyle: TextStyle(
-                                                    color: Color(0xFFA4A4A4),
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
-                                                  enabledBorder: OutlineInputBorder(
-                                                    borderRadius: BorderRadius.circular(10),
-                                                    borderSide: const BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1,
-                                                    ),
-                                                  ),
-                                                  focusedBorder: OutlineInputBorder(
-                                                    borderRadius: BorderRadius.circular(10),
-                                                    borderSide: const BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1,
-                                                    ),
-                                                  ),
-                                                  border: OutlineInputBorder(
-                                                    borderRadius: BorderRadius.circular(10),
-                                                    borderSide: const BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1,
-                                                    ),
-                                                  ),
-                                                  errorStyle: const TextStyle(
-                                                    color: alertColor,
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w300,
-                                                  ),
-                                                  focusedErrorBorder: OutlineInputBorder(
-                                                    borderRadius: BorderRadius.circular(10),
-                                                    borderSide: const BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1,
-                                                    ),
-                                                  ),
-                                                  errorBorder: OutlineInputBorder(
-                                                    borderRadius: BorderRadius.circular(10),
-                                                    borderSide: const BorderSide(
-                                                      color: Color(0xFFD7DCE4),
-                                                      width: 1,
-                                                    ),
-                                                  ),
-                                                  contentPadding: const EdgeInsets.symmetric(
-                                                    horizontal: 16,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                                        
-                                          Container(
-                                            padding: EdgeInsets.only(top: 10,bottom: 10,left: 25,right: 25),
-                                            decoration: BoxDecoration(
-                                                color: blackColor.withOpacity(0.4),
-                                                borderRadius: BorderRadius.circular(30)
-                                            ),
-                                            child: Row(
-                                              children: [
-                                                SvgPicture.asset("assets/start_icons/wallet.svg"),
-                                                SizedBox(width: 5,),
-                                                Text(
-                                                  "\$12,000",
-                                                  style: TextStyle(
-                                                    color: Colors.grey.shade400,
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
+                                          SearchField(width: fullWidth/2.5,),
+
+                                          WalletBalance(),
                                                         
                                         ],
                                       ),
@@ -837,99 +727,8 @@ class _ContextScreenState extends State<ContextScreen> {
                         
                             Row(
                               children: [
-                        
-                                Container(
-                                  height: 40,
-                                  width: fullWidth/4.1,
-                                  decoration: BoxDecoration(
-                                    color: blackColor.withOpacity(.04),
-                                    borderRadius: BorderRadius.circular(10),
-                                    // border: Border.all(
-                                    //   color: blackColor.withOpacity(.6),
-                                    //   width: 1,
-                                    // ),
-                                  ),
-                                  child: Center(
-                                    child: TextFormField(
-                                      // controller: mySearchController,
-                                      style: TextStyle(
-                                        color: whiteColor,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                      textInputAction: TextInputAction.done,
-                                      keyboardType: TextInputType.text,
-                                      autofocus: false,
-                                      decoration: InputDecoration(
-                                        fillColor: blackColor.withOpacity(.5),
-                                        filled: true,
-                                        suffixStyle: const TextStyle(
-                                          color: blackColor,
-                                        ),
-                                        prefixIcon: SvgPicture.asset(
-                                          "assets/main_icons/search.svg",
-                                        ),
-                                        prefixIconConstraints: const BoxConstraints(
-                                          minHeight: 10,
-                                          minWidth: 55,
-                                        ),
-                                        suffixIconConstraints: const BoxConstraints(
-                                          minHeight: 10,
-                                          minWidth: 55,
-                                        ),
-                                        hintText: "Type to search...",
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFFA4A4A4),
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10),
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10),
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                        ),
-                                        border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10),
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                        ),
-                                        errorStyle: const TextStyle(
-                                          color: alertColor,
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w300,
-                                        ),
-                                        focusedErrorBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10),
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                        ),
-                                        errorBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10),
-                                          borderSide: const BorderSide(
-                                            color: Color(0xFFD7DCE4),
-                                            width: 1,
-                                          ),
-                                        ),
-                                        contentPadding: const EdgeInsets.symmetric(
-                                          horizontal: 16,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
+
+                                SearchField(width: fullWidth/4.1,),
                         
                                 SizedBox(width: 20,),
                         
@@ -985,7 +784,17 @@ class _ContextScreenState extends State<ContextScreen> {
                               valuesList: valuesList,
                               isFirstBig: false,
                             ),
-                        
+
+                            SizedBox(height: 20,),
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                ButtonWidget(text: "Select Substitute",width: 200,onPressed: (){},),
+                              ],
+                            ),
+
+
                           ],
                         ),
                       ),

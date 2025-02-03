@@ -1,6 +1,8 @@
+import 'package:dhan_dhoom_web/core/button_widget.dart';
 import 'package:dhan_dhoom_web/core/clickable_widget.dart';
 import 'package:dhan_dhoom_web/core/consts.dart';
 import 'package:dhan_dhoom_web/core/lined_tittle.dart';
+import 'package:dhan_dhoom_web/screens/web/common_widgets.dart';
 import 'package:dhan_dhoom_web/screens/web/dashboard/dashboard_screen.dart';
 import 'package:dhan_dhoom_web/screens/web/dashboard/player_score_card_widget.dart';
 import 'package:dhan_dhoom_web/screens/web/dashboard/side_notification_widget.dart';
@@ -189,99 +191,7 @@ class _FantacyScreenState extends State<FantacyScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Container(
-                                  height: 40,
-                                  width: fullWidth/2.5,
-                                  decoration: BoxDecoration(
-                                    color: blackColor.withOpacity(.04),
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                      color: blackColor.withOpacity(.6),
-                                      width: 1,
-                                    ),
-                                  ),
-                                  child: Center(
-                                    child: TextFormField(
-                                      // controller: mySearchController,
-                                      style: TextStyle(
-                                        color: whiteColor,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                      textInputAction: TextInputAction.done,
-                                      keyboardType: TextInputType.text,
-                                      autofocus: false,
-                                      decoration: InputDecoration(
-                                        fillColor: blackColor.withOpacity(.5),
-                                        filled: true,
-                                        suffixStyle: const TextStyle(
-                                          color: blackColor,
-                                        ),
-                                        prefixIcon: SvgPicture.asset(
-                                          "assets/main_icons/search.svg",
-                                        ),
-                                        prefixIconConstraints: const BoxConstraints(
-                                          minHeight: 10,
-                                          minWidth: 55,
-                                        ),
-                                        suffixIconConstraints: const BoxConstraints(
-                                          minHeight: 10,
-                                          minWidth: 55,
-                                        ),
-                                        hintText: "Type to search...",
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFFA4A4A4),
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10),
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10),
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                        ),
-                                        border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10),
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                        ),
-                                        errorStyle: const TextStyle(
-                                          color: alertColor,
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w300,
-                                        ),
-                                        focusedErrorBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10),
-                                          borderSide: const BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                        ),
-                                        errorBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(10),
-                                          borderSide: const BorderSide(
-                                            color: Color(0xFFD7DCE4),
-                                            width: 1,
-                                          ),
-                                        ),
-                                        contentPadding: const EdgeInsets.symmetric(
-                                          horizontal: 16,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-
+                                SearchField(width: fullWidth/2.5,),
                                 Row(
                                   children: [
                                     Container(
@@ -474,7 +384,6 @@ class _FantacyScreenState extends State<FantacyScreen> {
                             Center(child: MatchesPointsTable(headingList: headingList,valuesList: valuesList, isFirstBig: false,)),
 
                             SizedBox(height: 20,),
-
 
 
                           ],

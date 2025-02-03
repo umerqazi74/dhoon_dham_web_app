@@ -1,6 +1,7 @@
 import 'package:dhan_dhoom_web/core/clickable_widget.dart';
 import 'package:dhan_dhoom_web/core/consts.dart';
 import 'package:dhan_dhoom_web/core/lined_tittle.dart';
+import 'package:dhan_dhoom_web/screens/web/common_widgets.dart';
 import 'package:dhan_dhoom_web/screens/web/dashboard/dashboard_screen.dart';
 import 'package:dhan_dhoom_web/screens/web/dashboard/player_score_card_widget.dart';
 import 'package:dhan_dhoom_web/screens/web/dashboard/side_notification_widget.dart';
@@ -13,6 +14,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/shades_widget.dart';
+import '../fantacy/context/context_screen.dart';
 import '../leaderboard/leader_board_screen.dart';
 import '../settings/Settings_screen.dart';
 import '../wallet/wallet_screen.dart';
@@ -337,40 +339,32 @@ class _MyTeamScreenState extends State<MyTeamScreen> {
                               ),
 
 
-                              !playerSelected?SizedBox():Column(
-                                children: [
-                                  SizedBox(height: 10,),
+                              !playerSelected?SizedBox():
+                              GridView.builder(
+                                physics: NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: fullWidth<800?2 : fullWidth<1200?3 : 4, // Number of items per row
+                                  crossAxisSpacing: 5, // Horizontal spacing between items
+                                  mainAxisSpacing: 10, // Vertical spacing between items
+                                  childAspectRatio: 1,
+                                  mainAxisExtent: 130, // Adjust based on your widget's aspect ratio
+                                ),
+                                itemCount: 8,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return InkWell(
+                                      onTap: (){
 
-                                  SizedBox(
-                                    height: 106,
-                                    child: ListView.builder(
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount: 4,
-                                      itemBuilder: (BuildContext context, int index) {
-                                        return Container(
-                                            margin: EdgeInsets.only(right: 15),
-                                            child: PlayerScoreCardWidget());
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) =>  ContextScreen(),
+                                            )
+                                        );
+
                                       },
-
-                                    ),
-                                  ),
-
-                                  SizedBox(height: 20,),
-
-                                  SizedBox(
-                                    height: 106,
-                                    child: ListView.builder(
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount: 4,
-                                      itemBuilder: (BuildContext context, int index) {
-                                        return Container(
-                                            margin: EdgeInsets.only(right: 15),
-                                            child: PlayerScoreCardWidget());
-                                      },
-
-                                    ),
-                                  ),
-                                ],
+                                      child: PlayerScoreCardWidget());
+                                },
                               ),
 
                               SizedBox(height: 50,),
@@ -382,98 +376,7 @@ class _MyTeamScreenState extends State<MyTeamScreen> {
                               Row(
                                 children: [
 
-                                  Container(
-                                    height: 40,
-                                    width: fullWidth/4.1,
-                                    decoration: BoxDecoration(
-                                      color: blackColor.withOpacity(.04),
-                                      borderRadius: BorderRadius.circular(10),
-                                      // border: Border.all(
-                                      //   color: blackColor.withOpacity(.6),
-                                      //   width: 1,
-                                      // ),
-                                    ),
-                                    child: Center(
-                                      child: TextFormField(
-                                        // controller: mySearchController,
-                                        style: TextStyle(
-                                          color: whiteColor,
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                        textInputAction: TextInputAction.done,
-                                        keyboardType: TextInputType.text,
-                                        autofocus: false,
-                                        decoration: InputDecoration(
-                                          fillColor: blackColor.withOpacity(.5),
-                                          filled: true,
-                                          suffixStyle: const TextStyle(
-                                            color: blackColor,
-                                          ),
-                                          prefixIcon: SvgPicture.asset(
-                                            "assets/main_icons/search.svg",
-                                          ),
-                                          prefixIconConstraints: const BoxConstraints(
-                                            minHeight: 10,
-                                            minWidth: 55,
-                                          ),
-                                          suffixIconConstraints: const BoxConstraints(
-                                            minHeight: 10,
-                                            minWidth: 55,
-                                          ),
-                                          hintText: "Type to search...",
-                                          hintStyle: TextStyle(
-                                            color: Color(0xFFA4A4A4),
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(10),
-                                            borderSide: const BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1,
-                                            ),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(10),
-                                            borderSide: const BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1,
-                                            ),
-                                          ),
-                                          border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(10),
-                                            borderSide: const BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1,
-                                            ),
-                                          ),
-                                          errorStyle: const TextStyle(
-                                            color: alertColor,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w300,
-                                          ),
-                                          focusedErrorBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(10),
-                                            borderSide: const BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1,
-                                            ),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(10),
-                                            borderSide: const BorderSide(
-                                              color: Color(0xFFD7DCE4),
-                                              width: 1,
-                                            ),
-                                          ),
-                                          contentPadding: const EdgeInsets.symmetric(
-                                            horizontal: 16,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
+                                  SearchField(width: fullWidth/4.1,),
 
                                   SizedBox(width: 20,),
 
