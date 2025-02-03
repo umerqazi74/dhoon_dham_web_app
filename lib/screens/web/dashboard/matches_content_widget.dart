@@ -35,7 +35,7 @@ class _MatchesContentWidgetState extends State<MatchesContentWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
 
-                SearchField(width: fullWidth/2.5,editingController: mySearchController,),
+                CustomTextField(width: fullWidth/2.5,editingController: mySearchController,),
                 WalletBalance(),
 
               ],

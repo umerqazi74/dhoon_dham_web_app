@@ -50,7 +50,7 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
                   children: [
 
                     Container(
-                      height: fullHeight+fullHeight+300,
+                      height: fullHeight+300,
                       width: fullWidth/6.5,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -190,7 +190,7 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                SearchField(width: fullWidth/2.5,),
+                                CustomTextField(width: fullWidth/2.5,),
 
                                 WalletBalance(),
 
@@ -209,34 +209,13 @@ class _LeaderBoardScreenState extends State<LeaderBoardScreen> {
                                   ),
                                 ),
                                 SizedBox(width: 20,),
-                                Container(
-                                  width: fullWidth/4.1,
-                                  // margin: EdgeInsets.all(10),
-                                  padding: EdgeInsets.all(12),
-                                  decoration: BoxDecoration(
-                                    color: blackColor.withOpacity(0.5),
-                                    borderRadius: BorderRadius.circular(15),
-                                    // border: Border.all(color: Colors.grey.shade300,width: 0.2)
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-
-                                      Text(
-                                        "Select Contest",
-                                        style: TextStyle(
-                                          color: Colors.grey.shade400,
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-
-                                      SizedBox(width: 10,),
-
-                                      Icon(Icons.arrow_drop_down_outlined,color: whiteColor,size: 12,)
-
-                                    ],),
+                                DropdownWidget(
+                                  items: [
+                                    'a',
+                                    'b',
+                                    'c',
+                                    'd',
+                                  ],
                                 ),
 
                               ],

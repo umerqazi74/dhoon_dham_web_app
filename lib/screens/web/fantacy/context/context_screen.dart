@@ -206,7 +206,7 @@ class _ContextScreenState extends State<ContextScreen> {
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
-                                          SearchField(width: fullWidth/2.5,),
+                                          CustomTextField(width: fullWidth/2.5,),
 
                                           WalletBalance(),
                                                         
@@ -728,7 +728,7 @@ class _ContextScreenState extends State<ContextScreen> {
                             Row(
                               children: [
 
-                                SearchField(width: fullWidth/4.1,),
+                                CustomTextField(width: fullWidth/4.1,),
                         
                                 SizedBox(width: 20,),
                         

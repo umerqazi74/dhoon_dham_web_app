@@ -18,7 +18,7 @@ class _WalletSideNotificationWidgetState extends State<WalletSideNotificationWid
     double fullHeight = MediaQuery.of(context).size.height;
     double fullWidth = MediaQuery.of(context).size.width;
     return Container(
-      height: fullHeight+fullHeight+300,
+      height: fullHeight+300,
       width: fullWidth/4,
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(

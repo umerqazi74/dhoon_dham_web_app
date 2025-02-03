@@ -191,7 +191,7 @@ class _FantacyScreenState extends State<FantacyScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                SearchField(width: fullWidth/2.5,),
+                                CustomTextField(width: fullWidth/2.5,),
                                 Row(
                                   children: [
                                     Container(

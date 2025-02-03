@@ -49,7 +49,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   children: [
 
                     Container(
-                      height: fullHeight+fullHeight+300,
+                      height: fullHeight+300,
                       width: fullWidth/6.5,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -189,7 +189,7 @@ class _WalletScreenState extends State<WalletScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              SearchField(width: fullWidth/2.5,),
+                              CustomTextField(width: fullWidth/2.5,),
 
                               WalletBalance(),
 
@@ -413,251 +413,36 @@ class _WalletScreenState extends State<WalletScreen> {
                                     ),
                                     SizedBox(height: 15,),
 
-                                    Container(
-                                      height: 40,
+                                    CustomTextField(
+                                      isNotSearch: true,
                                       width: fullWidth/4.5,
-                                      decoration: BoxDecoration(
-                                        color: whiteColor.withOpacity(.04),
-                                        borderRadius: BorderRadius.circular(30),
-                                        // border: Border.all(
-                                        //   color: blackColor.withOpacity(.6),
-                                        //   width: 1,
-                                        // ),
-                                      ),
-                                      child: Center(
-                                        child: TextFormField(
-                                          // controller: mySearchController,
-                                          style: TextStyle(
-                                            color: whiteColor,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                          textInputAction: TextInputAction.done,
-                                          keyboardType: TextInputType.text,
-                                          autofocus: false,
-                                          decoration: InputDecoration(
-                                            fillColor: whiteColor.withOpacity(.1),
-                                            filled: true,
-                                            suffixStyle: const TextStyle(
-                                              color: blackColor,
-                                            ),
-
-                                            hintText: "5555 666 77 888 99",
-                                            hintStyle: TextStyle(
-                                              color: Color(0xFFA4A4A4),
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(30),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(30),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(30),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            errorStyle: const TextStyle(
-                                              color: alertColor,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                            focusedErrorBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            errorBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
-                                              borderSide: const BorderSide(
-                                                color: Color(0xFFD7DCE4),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            contentPadding: const EdgeInsets.symmetric(
-                                              horizontal: 16,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+                                      color: whiteColor.withOpacity(.04),
+                                      fillClr: whiteColor.withOpacity(.04),
+                                      borderClr: whiteColor.withOpacity(.04),
+                                      radius: 30,
+                                      txt: "555 666 333 553",
                                     ),
                                     SizedBox(height: 15,),
 
-                                    Container(
-                                      height: 40,
+                                    CustomTextField(
+                                      isNotSearch: true,
                                       width: fullWidth/4.5,
-                                      decoration: BoxDecoration(
-                                        color: whiteColor.withOpacity(.04),
-                                        borderRadius: BorderRadius.circular(30),
-                                        // border: Border.all(
-                                        //   color: blackColor.withOpacity(.6),
-                                        //   width: 1,
-                                        // ),
-                                      ),
-                                      child: Center(
-                                        child: TextFormField(
-                                          // controller: mySearchController,
-                                          style: TextStyle(
-                                            color: whiteColor,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                          textInputAction: TextInputAction.done,
-                                          keyboardType: TextInputType.text,
-                                          autofocus: false,
-                                          decoration: InputDecoration(
-                                            fillColor: whiteColor.withOpacity(.1),
-                                            filled: true,
-                                            suffixStyle: const TextStyle(
-                                              color: blackColor,
-                                            ),
-                                            hintText: "Expire date-",
-                                            hintStyle: TextStyle(
-                                              color: Color(0xFFA4A4A4),
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(30),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(30),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(30),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            errorStyle: const TextStyle(
-                                              color: alertColor,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                            focusedErrorBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            errorBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(30),
-                                              borderSide: const BorderSide(
-                                                color: Color(0xFFD7DCE4),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            contentPadding: const EdgeInsets.symmetric(
-                                              horizontal: 16,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+                                      color: whiteColor.withOpacity(.04),
+                                      fillClr: whiteColor.withOpacity(.04),
+                                      borderClr: whiteColor.withOpacity(.04),
+                                      radius: 30,
+                                      txt: "Expire date -",
                                     ),
                                     SizedBox(height: 15,),
 
-                                    Container(
-                                      height: 40,
+                                    CustomTextField(
+                                      isNotSearch: true,
                                       width: fullWidth/4.5,
-                                      decoration: BoxDecoration(
-                                        color: whiteColor.withOpacity(.01),
-                                        borderRadius: BorderRadius.circular(30),
-                                        // border: Border.all(
-                                        //   color: blackColor.withOpacity(.6),
-                                        //   width: 1,
-                                        // ),
-                                      ),
-                                      child: Center(
-                                        child: TextFormField(
-                                          // controller: mySearchController,
-                                          style: TextStyle(
-                                            color: whiteColor,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                          textInputAction: TextInputAction.done,
-                                          keyboardType: TextInputType.text,
-                                          autofocus: false,
-                                          decoration: InputDecoration(
-                                            fillColor: whiteColor.withOpacity(.1),
-                                            filled: true,
-
-                                            hintText: "CVV-",
-                                            hintStyle: TextStyle(
-                                              color: Color(0xFFA4A4A4),
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(20),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(30),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(30),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            errorStyle: const TextStyle(
-                                              color: alertColor,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                            focusedErrorBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
-                                              borderSide: const BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            errorBorder: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
-                                              borderSide: const BorderSide(
-                                                color: Color(0xFFD7DCE4),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            contentPadding: const EdgeInsets.symmetric(
-                                              horizontal: 16,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+                                      color: whiteColor.withOpacity(.04),
+                                      fillClr: whiteColor.withOpacity(.04),
+                                      borderClr: whiteColor.withOpacity(.04),
+                                      radius: 30,
+                                      txt: "CVV -",
                                     ),
                                     SizedBox(height: 70,),
 

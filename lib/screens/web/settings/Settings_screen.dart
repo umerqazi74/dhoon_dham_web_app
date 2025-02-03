@@ -56,7 +56,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   children: [
 
                     Container(
-                      height: fullHeight+fullHeight+300,
+                      height: fullHeight+300,
                       width: fullWidth/6.5,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -196,7 +196,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                SearchField(width: fullWidth/2.5,),
+                                CustomTextField(width: fullWidth/2.5,),
 
                                 WalletBalance(),
 

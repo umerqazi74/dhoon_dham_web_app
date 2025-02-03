@@ -255,43 +255,19 @@ class _MyTeamScreenState extends State<MyTeamScreen> {
                                   ),
 
                                   SizedBox(width: 30,),
-
-                                  playerSelected==false?SizedBox() :InkWell(
-                                    onTap: (){
+                                  playerSelected==false?SizedBox() :DropdownWidget(
+                                    items: [
+                                    'Contest 1',
+                                    'Contest 2',
+                                    'Contest 3',
+                                    'Contest 4',
+                                  ],
+                                    onChange: (String value){
                                       setState(() {
                                         playerSelected = false;
                                       });
                                     },
-                                        child: Container(
-                                          width: fullWidth/4.1,
-                                          // margin: EdgeInsets.all(10),
-                                          padding: EdgeInsets.all(12),
-                                          decoration: BoxDecoration(
-                                        color: blackColor.withOpacity(0.5),
-                                        borderRadius: BorderRadius.circular(15),
-                                        // border: Border.all(color: Colors.grey.shade300,width: 0.2)
-                                                                            ),
-                                                                            child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-
-                                          Text(
-                                            "Select Contest",
-                                            style: TextStyle(
-                                              color: Colors.grey.shade400,
-                                              fontSize: 11,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-
-                                          SizedBox(width: 10,),
-
-                                          Icon(Icons.arrow_drop_down_outlined,color: whiteColor,size: 12,)
-
-                                        ],),
-                                        ),
-                                      ),
+                                  ),
 
 
                                 ],
@@ -299,43 +275,18 @@ class _MyTeamScreenState extends State<MyTeamScreen> {
 
                               SizedBox(height: 40,),
 
-                              playerSelected? SizedBox() : InkWell(
-                                onTap: (){{
+                              playerSelected? SizedBox() : DropdownWidget(
+                                items: [
+                                  'Contest 1',
+                                  'Contest 2',
+                                  'Contest 3',
+                                  'Contest 4',
+                                ],
+                                onChange: (String value){
                                   setState(() {
                                     playerSelected = true;
                                   });
-                                }
-    },
-                                child: Container(
-                                  width: fullWidth/4.1,
-                                  // margin: EdgeInsets.all(10),
-                                  padding: EdgeInsets.all(12),
-                                  decoration: BoxDecoration(
-                                    color: blackColor.withOpacity(0.5),
-                                    borderRadius: BorderRadius.circular(15),
-                                    // border: Border.all(color: Colors.grey.shade300,width: 0.2)
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-
-                                      Text(
-                                        "Select Contest",
-                                        style: TextStyle(
-                                          color: Colors.grey.shade400,
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-
-                                      SizedBox(width: 10,),
-
-                                      Icon(Icons.arrow_drop_down_outlined,color: whiteColor,size: 12,)
-
-                                    ],
-                                  ),
-                                ),
+                                },
                               ),
 
 
@@ -376,38 +327,17 @@ class _MyTeamScreenState extends State<MyTeamScreen> {
                               Row(
                                 children: [
 
-                                  SearchField(width: fullWidth/4.1,),
+                                  CustomTextField(width: fullWidth/4.1,),
 
                                   SizedBox(width: 20,),
 
-                                  Container(
-                                    width: fullWidth/4.1,
-                                    // margin: EdgeInsets.all(10),
-                                    padding: EdgeInsets.all(12),
-                                    decoration: BoxDecoration(
-                                        color: blackColor.withOpacity(0.5),
-                                        borderRadius: BorderRadius.circular(15),
-                                        // border: Border.all(color: Colors.grey.shade300,width: 0.2)
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-
-                                        Text(
-                                          "All Positions",
-                                          style: TextStyle(
-                                            color: Colors.grey.shade400,
-                                            fontSize: 11,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                        SizedBox(width: 10,),
-
-                                        Icon(Icons.arrow_drop_down_outlined,color: whiteColor,size: 12,)
-
-                                      ],
-                                    ),
+                                  DropdownWidget(
+                                    items: [
+                                      'a',
+                                      'b',
+                                      'c',
+                                      'd',
+                                    ],
                                   ),
 
                                   SizedBox(width: 20,),

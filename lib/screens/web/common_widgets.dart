@@ -116,13 +116,16 @@ class LinedTextField extends StatelessWidget {
   }
 }
 
-class SearchField extends StatelessWidget {
+class CustomTextField extends StatelessWidget {
   final TextEditingController? editingController;
   final double? width;
+  final double? radius;
   final Color? color;
   final Color? borderClr;
+  final Color? fillClr;
   final String? txt;
-  const SearchField({super.key, this.editingController, this.width, this.color, this.borderClr, this.txt});
+  final bool? isNotSearch;
+  const CustomTextField({super.key, this.editingController, this.width, this.color, this.borderClr, this.txt, this.fillClr, this.radius, this.isNotSearch});
 
   @override
   Widget build(BuildContext context) {
@@ -132,7 +135,7 @@ class SearchField extends StatelessWidget {
       width: width?? 200,
       decoration: BoxDecoration(
         color: color?? blackColor.withOpacity(.04),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(radius??10),
         border: Border.all(
           color: borderClr?? blackColor.withOpacity(.6),
           width: 1,
@@ -150,12 +153,12 @@ class SearchField extends StatelessWidget {
           keyboardType: TextInputType.text,
           autofocus: false,
           decoration: InputDecoration(
-            fillColor: blackColor.withOpacity(.5),
+            fillColor: fillClr?? blackColor.withOpacity(.5),
             filled: true,
             suffixStyle: const TextStyle(
               color: blackColor,
             ),
-            prefixIcon: SvgPicture.asset(
+            prefixIcon: isNotSearch==true? null:SvgPicture.asset(
               "assets/main_icons/search.svg",
             ),
             prefixIconConstraints: const BoxConstraints(
@@ -173,21 +176,21 @@ class SearchField extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(radius??10),
               borderSide: const BorderSide(
                 color: Colors.transparent,
                 width: 1,
               ),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(radius??10),
               borderSide: const BorderSide(
                 color: Colors.transparent,
                 width: 1,
               ),
             ),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(radius??10),
               borderSide: const BorderSide(
                 color: Colors.transparent,
                 width: 1,
@@ -199,14 +202,14 @@ class SearchField extends StatelessWidget {
               fontWeight: FontWeight.w300,
             ),
             focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(radius??10),
               borderSide: const BorderSide(
                 color: Colors.transparent,
                 width: 1,
               ),
             ),
             errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(radius??10),
               borderSide: const BorderSide(
                 color: Color(0xFFD7DCE4),
                 width: 1,
@@ -244,6 +247,80 @@ class WalletBalance extends StatelessWidget {
               fontSize: 12,
               fontWeight: FontWeight.w600,
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+class DropdownWidget extends StatefulWidget {
+  final List<String> items;
+  final Function(String value)? onChange;
+  const DropdownWidget({super.key, required this.items, this.onChange});
+
+  @override
+  _DropdownWidgetState createState() => _DropdownWidgetState();
+}
+
+class _DropdownWidgetState extends State<DropdownWidget> {
+  String? selectedValue; // Variable to store the selected value
+
+  // List of items for the dropdown
+  late List<String> items = widget.items;
+
+  @override
+  Widget build(BuildContext context) {
+    double fullWidth = MediaQuery.of(context).size.width;
+
+    return Container(
+      height: 40,
+      width: fullWidth / 4.1,
+      padding: EdgeInsets.only(top: 12,bottom: 12,left: fullWidth / 100),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.5),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Dropdown Button
+          DropdownButton<String>(
+            value: selectedValue,
+            hint: Text(
+              "Select Contest",
+              style: TextStyle(
+                color: Colors.grey.shade400,
+                fontSize: 11,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            icon: Container(margin: EdgeInsets.only(left: fullWidth / 7),child: Icon(Icons.arrow_drop_down_outlined, color: Colors.white, size: 12)),
+            iconSize: 24,
+            elevation: 16,
+            dropdownColor: blackColor,
+            style: TextStyle(color: whiteColor),
+            underline: Container(), // Remove the default underline
+            onChanged: (String? newValue) {
+              setState(() {
+                selectedValue = newValue;
+              });
+              widget.onChange!(newValue!);
+            },
+            items: items.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(
+                  value,
+                  style: TextStyle(
+                    color: whiteColor, // Text color for dropdown items
+                    fontSize: 11,
+                  ),
+                ),
+              );
+            }).toList(),
           ),
         ],
       ),
