@@ -92,7 +92,7 @@ class TeamPlayersTable extends StatelessWidget {
                             width: 60,
                             height: 25,
                             child: Image.asset(row[i]),
-                          )
+                          ):isValidColor(row[i])?Container(height: 24,width: 25,decoration: BoxDecoration(color: getColorFromString(row[i]),borderRadius: BorderRadius.circular(7)),)
                               : Text(
                             row[i],
                             style: TextStyle(
@@ -110,4 +110,105 @@ class TeamPlayersTable extends StatelessWidget {
       ],
     );
   }
+
+
+  /// Check if the string represents a valid color
+  bool isValidColor(String colorString) {
+    try {
+      // Try to parse the string into a Color object
+      getColorFromString(colorString);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /// Convert a string into a Color object
+  Color getColorFromString(String colorString) {
+    // Trim the string and make it lowercase for easier comparison
+    colorString = colorString.trim().toLowerCase();
+
+    // Check for hexadecimal color codes (e.g., "#FF5733" or "#FF573388")
+    if (colorString.startsWith('#')) {
+      return _parseHexColor(colorString);
+    }
+
+    // Check for predefined color names (e.g., "red", "blue")
+    if (_isPredefinedColorName(colorString)) {
+      return _getPredefinedColor(colorString);
+    }
+
+    // Check for Flutter's Color constructor format (e.g., "Color(0xFF5733)")
+    if (colorString.startsWith('color(') && colorString.endsWith(')')) {
+      return _parseColorConstructor(colorString);
+    }
+
+    // If none of the above, throw an exception
+    throw FormatException('Invalid color string: $colorString');
+  }
+
+  /// Parse a hexadecimal color string (e.g., "#FF5733" or "#FF573388")
+  Color _parseHexColor(String hexColor) {
+    hexColor = hexColor.replaceFirst('#', '');
+    if (hexColor.length == 6) {
+      hexColor = 'FF$hexColor'; // Add opacity if not provided
+    }
+    if (hexColor.length != 8) {
+      throw FormatException('Invalid hex color: $hexColor');
+    }
+    return Color(int.parse(hexColor, radix: 16));
+  }
+
+  /// Check if the string is a predefined color name
+  bool _isPredefinedColorName(String colorString) {
+    final predefinedColors = {
+      'red': Colors.red,
+      'blue': Colors.blue,
+      'green': Colors.green,
+      'yellow': Colors.yellow,
+      'orange': Colors.orange,
+      'purple': Colors.purple,
+      'pink': Colors.pink,
+      'teal': Colors.teal,
+      'cyan': Colors.cyan,
+      'brown': Colors.brown,
+      'grey': Colors.grey,
+      'black': Colors.black,
+      'white': Colors.white,
+    };
+    return predefinedColors.containsKey(colorString);
+  }
+
+  /// Get a predefined color from its name
+  Color _getPredefinedColor(String colorString) {
+    final predefinedColors = {
+      'red': Colors.red,
+      'blue': Colors.blue,
+      'green': Colors.green,
+      'yellow': Colors.yellow,
+      'orange': Colors.orange,
+      'purple': Colors.purple,
+      'pink': Colors.pink,
+      'teal': Colors.teal,
+      'cyan': Colors.cyan,
+      'brown': Colors.brown,
+      'grey': Colors.grey,
+      'black': Colors.black,
+      'white': Colors.white,
+    };
+    return predefinedColors[colorString]!;
+  }
+
+  /// Parse a Flutter Color constructor string (e.g., "Color(0xFF5733)")
+  Color _parseColorConstructor(String colorString) {
+    final valueString = colorString.substring(6, colorString.length - 1);
+    final value = int.tryParse(valueString);
+    if (value == null) {
+      throw FormatException('Invalid Color constructor: $colorString');
+    }
+    return Color(value);
+  }
+
+
+
 }

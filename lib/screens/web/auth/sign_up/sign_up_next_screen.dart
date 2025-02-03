@@ -289,10 +289,6 @@ class _SignUpNextScreenState extends State<SignUpNextScreen> {
                             ),
 
 
-
-
-
-
                             const SizedBox(height: 10),
 
                             SizedBox(

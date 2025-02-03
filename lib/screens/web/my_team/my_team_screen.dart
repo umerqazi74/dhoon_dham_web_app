@@ -5,16 +5,20 @@ import 'package:dhan_dhoom_web/screens/web/dashboard/dashboard_screen.dart';
 import 'package:dhan_dhoom_web/screens/web/dashboard/player_score_card_widget.dart';
 import 'package:dhan_dhoom_web/screens/web/dashboard/side_notification_widget.dart';
 import 'package:dhan_dhoom_web/screens/web/dashboard/team_score_card_widget.dart';
-import 'package:dhan_dhoom_web/screens/web/dashboard/matches_widget.dart';
+import 'package:dhan_dhoom_web/screens/web/dashboard/matches_content_widget.dart';
+import 'package:dhan_dhoom_web/screens/web/fantacy/fantacy_screen.dart';
 import 'package:dhan_dhoom_web/screens/web/my_team/team_players_table_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/shades_widget.dart';
+import '../leaderboard/leader_board_screen.dart';
+import '../settings/Settings_screen.dart';
+import '../wallet/wallet_screen.dart';
 
 class MyTeamScreen extends StatefulWidget {
-   MyTeamScreen({super.key});
+   const MyTeamScreen({super.key});
 
   @override
   State<MyTeamScreen> createState() => _MyTeamScreenState();
@@ -104,7 +108,51 @@ class _MyTeamScreenState extends State<MyTeamScreen> {
                                                 (route) => false,
                                           );
                                         }
-
+                                        if(index==1){
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) =>  MyTeamScreen(),
+                                            ),
+                                                (route) => false,
+                                          );
+                                        }
+                                        if(index==2){
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) =>  FantacyScreen(),
+                                            ),
+                                                (route) => false,
+                                          );
+                                        }
+                                        if(index==3){
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) =>  WalletScreen(),
+                                            ),
+                                                (route) => false,
+                                          );
+                                        }
+                                        if(index==4){
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) =>  LeaderBoardScreen(),
+                                            ),
+                                                (route) => false,
+                                          );
+                                        }
+                                        if(index==5){
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) =>  SettingsScreen(),
+                                            ),
+                                                (route) => false,
+                                          );
+                                        }
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(left: fullWidth/80),
@@ -490,8 +538,6 @@ class _MyTeamScreenState extends State<MyTeamScreen> {
 
 
 
-                    // TodayMatchesWidget(),
-                    // SideNotificationWidget()
 
 
 

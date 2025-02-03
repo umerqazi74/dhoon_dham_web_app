@@ -3,14 +3,18 @@ import 'package:dhan_dhoom_web/core/lined_tittle.dart';
 import 'package:dhan_dhoom_web/screens/web/dashboard/player_score_card_widget.dart';
 import 'package:dhan_dhoom_web/screens/web/dashboard/side_notification_widget.dart';
 import 'package:dhan_dhoom_web/screens/web/dashboard/team_score_card_widget.dart';
-import 'package:dhan_dhoom_web/screens/web/dashboard/matches_widget.dart';
+import 'package:dhan_dhoom_web/screens/web/dashboard/matches_content_widget.dart';
+import 'package:dhan_dhoom_web/screens/web/fantacy/fantacy_screen.dart';
+import 'package:dhan_dhoom_web/screens/web/leaderboard/leader_board_screen.dart';
 import 'package:dhan_dhoom_web/screens/web/my_team/my_team_screen.dart';
+import 'package:dhan_dhoom_web/screens/web/wallet/wallet_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/shades_widget.dart';
-import 'matches_history_table.dart';
+import '../settings/Settings_screen.dart';
+import 'matches_points_table.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -92,6 +96,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           currentItem=index;
                                         });
 
+                                        if(index==0){
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) =>  DashboardScreen(),
+                                            ),
+                                                (route) => false,
+                                          );
+                                        }
                                         if(index==1){
                                           Navigator.pushAndRemoveUntil(
                                             context,
@@ -101,7 +114,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                                 (route) => false,
                                           );
                                         }
-
+                                        if(index==2){
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) =>  FantacyScreen(),
+                                            ),
+                                                (route) => false,
+                                          );
+                                        }
+                                        if(index==3){
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) =>  WalletScreen(),
+                                            ),
+                                                (route) => false,
+                                          );
+                                        }
+                                        if(index==4){
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) =>  LeaderBoardScreen(),
+                                            ),
+                                                (route) => false,
+                                          );
+                                        }
+                                        if(index==5){
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) =>  SettingsScreen(),
+                                            ),
+                                                (route) => false,
+                                          );
+                                        }
                                       },
                                       child: Container(
                                         margin: EdgeInsets.only(left: fullWidth/80),
@@ -124,7 +172,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
 
 
-                    MatchesWidget(),
+                    MatchesContentWidget(),
                     SideNotificationWidget()
 
 

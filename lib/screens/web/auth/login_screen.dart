@@ -11,6 +11,7 @@ import '../../../core/button_widget.dart';
 import '../../../core/clickable_widget.dart';
 import '../../../core/consts.dart';
 import '../../../core/text_form_field_widget.dart';
+import '../dashboard/dashboard_screen.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -33,13 +34,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
   onButtonPressed() async {
     if (myFormKey.currentState!.validate()) {
-      // Navigator.pushAndRemoveUntil(
-      //   context,
-      //   MaterialPageRoute(
-      //     builder: (BuildContext context) => const DashboardScreen(),
-      //   ),
-      //       (route) => false,
-      // );
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (BuildContext context) => const DashboardScreen(),
+        ),
+            (route) => false,
+      );
     }
   }
 

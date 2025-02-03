@@ -5,16 +5,16 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../core/consts.dart';
 import '../../../core/lined_tittle.dart';
-import 'matches_history_table.dart';
+import 'matches_points_table.dart';
 
-class MatchesWidget extends StatefulWidget {
-  const MatchesWidget({super.key});
+class MatchesContentWidget extends StatefulWidget {
+  const MatchesContentWidget({super.key});
 
   @override
-  State<MatchesWidget> createState() => _MatchesWidgetState();
+  State<MatchesContentWidget> createState() => _MatchesContentWidgetState();
 }
 
-class _MatchesWidgetState extends State<MatchesWidget> {
+class _MatchesContentWidgetState extends State<MatchesContentWidget> {
 
   TextEditingController mySearchController = TextEditingController();
   @override
@@ -365,7 +365,7 @@ class _MatchesWidgetState extends State<MatchesWidget> {
             SizedBox(height: 30,),
 
 
-            Center(child: MatchesHistoryTable(headingList: headingList,valuesList: valuesList, isFirstBig: false,)),
+            Center(child: MatchesPointsTable(headingList: headingList,valuesList: valuesList, isFirstBig: false,)),
 
             SizedBox(height: 20,),
 

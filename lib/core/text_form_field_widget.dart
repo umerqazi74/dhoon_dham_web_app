@@ -5,7 +5,7 @@ import '../../../core/consts.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
   final String hintText, labelText;
-  final TextEditingController myController;
+  final TextEditingController? myController;
   final String? Function(String?)? validator;
   final TextInputAction textInputAction;
   final TextInputType textInputType;
@@ -36,7 +36,7 @@ class TextFormFieldWidget extends StatelessWidget {
     super.key,
     this.hintText = '',
     this.labelText = '',
-    required this.myController,
+    this.myController,
     this.validator,
     this.textInputAction = TextInputAction.next,
     this.textInputType = TextInputType.text,

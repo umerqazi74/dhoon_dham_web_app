@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../../core/consts.dart';
 
-class MatchesHistoryTable extends StatelessWidget {
+class MatchesPointsTable extends StatelessWidget {
   final List<String> headingList;
   final List<List<String>> valuesList;
   final bool isFirstBig;
-  const MatchesHistoryTable({super.key, required this.headingList, required this.valuesList,  required this.isFirstBig});
+  final bool? isPage;
+  const MatchesPointsTable({super.key, required this.headingList, required this.valuesList,  required this.isFirstBig, this.isPage});
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +29,10 @@ class MatchesHistoryTable extends StatelessWidget {
               // ),
               children: headingList
                   .map((heading) => Padding(
-                padding: const EdgeInsets.only(bottom: 22),
+                padding: EdgeInsets.only(bottom: 22),
                 child: Text(
                       heading,
-                      style:  TextStyle(color: whiteColor.withOpacity(0.7),fontWeight: FontWeight.bold),
+                      style:  TextStyle(color: isPage==true?whiteColor: whiteColor.withOpacity(0.7),fontWeight: FontWeight.bold),
                     ),
                   ))
                   .toList(),

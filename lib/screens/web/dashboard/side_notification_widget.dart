@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../../core/consts.dart';
 import '../../../core/lined_tittle.dart';
-import 'matches_history_table.dart';
+import 'matches_points_table.dart';
 
 class SideNotificationWidget extends StatefulWidget {
    const SideNotificationWidget({super.key});
@@ -271,7 +271,7 @@ class _SideNotificationWidgetState extends State<SideNotificationWidget> {
 
           SizedBox(height: 40,),
 
-          Center(child: MatchesHistoryTable(headingList: leaderHeadingList,valuesList: leaderValuesList, isFirstBig: true,)),
+          Center(child: MatchesPointsTable(headingList: leaderHeadingList,valuesList: leaderValuesList, isFirstBig: true,)),
 
           SizedBox(height: 40,),
 
